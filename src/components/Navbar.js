@@ -1,24 +1,12 @@
-import React,{Component} from "react";
+import React from "react";
 import {
-    Link,
-    useHistory
+    Link
 } from "react-router-dom";
 
-export class Navbar extends Component{
-    constructor() {
-        super();
-        this.state = {
-            searchQuery:"Enter your text"
-        }
-    }
-    async handleInput(e){
-        this.setState({
-            searchQuery:e.target.value
-        })
-    }
-    render(){
+const Navbar = ()=>{
+
        return( <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">NewsApp</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,16 +41,11 @@ export class Navbar extends Component{
                                 <Link className="nav-link" to="/technology">Technology</Link>
                             </li>
                         </ul>
-                        <form action="/" method="get" className="d-flex">
-                            <input   value={this.searchQuery}
-                                    onInput={this.handleInput} className="form-control me-2" type="search"  aria-label="Search"  name="q"/>
-                                <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
         </div> )
-    }
+
 }
 
 export default Navbar
